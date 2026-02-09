@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #111;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f8f6f3;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.collection {
+  padding: 60px 40px;
+}
+
+.products {
+  display: flex;
+  gap: 20px;
+}
+
+.product img {
+  width: 100%;
+  max-width: 250px;
+}
+
+.about {
+  padding: 60px 40px;
+  background-color: #fafafa;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #111;
+  color: white;
+}
