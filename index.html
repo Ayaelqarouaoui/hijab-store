@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHALHER Paris | Maison de Châles de Luxe</title>
+    <title>CHALHER Paris | Maison de Luxe</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -21,35 +21,56 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Portez l'exception.</h1>
-            <p>L'art du châle moderne et raffiné.</p>
-            <a href="#collection" class="btn-discover">Voir la Collection</a>
+            <h1>CHALHER PARIS</h1>
+            <p>L'ÉLÉGANCE AU FÉMININ</p>
+            <a href="#collection" class="btn-discover">Explorer la Collection</a>
         </div>
     </section>
 
     <section id="collection" class="gallery-section">
         <div class="section-title">
-            <h2>Nos Pièces Signature</h2>
+            <h2>Nos Créations</h2>
             <div class="line"></div>
         </div>
-        
         <div class="grid-container" id="gallery"></div>
     </section>
+
+    <div id="productModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle">Modèle CHALHER</h2>
+                    <p class="price">Exclusivité Parisienne</p>
+                    <div class="line"></div>
+                    <p class="description">
+                        Pièce confectionnée dans nos ateliers. Matières 100% naturelles. 
+                        Design pensé pour être porté de plusieurs manières différentes.
+                    </p>
+                    <a href="https://instagram.com/chalher_paris" target="_blank" class="btn-insta">Commander sur Instagram</a>
+                </div>
+            </div>
+            <div class="suggestions">
+                <h3>Vous aimerez aussi</h3>
+                <div class="suggestions-grid" id="suggestionsGrid"></div>
+            </div>
+        </div>
+    </div>
 
     <footer id="contact">
         <div class="footer-inner">
             <div class="footer-logo">CHALHER</div>
-            <p>Conception artisanale & Matières nobles</p>
-            
             <div class="social-links">
                 <a href="tel:+212600000000" class="social-item">📞 +212 6 XX XX XX XX</a>
-                <a href="https://www.instagram.com/nom_de_ton_compte" target="_blank" class="social-item">📸 Instagram</a>
+                <a href="https://instagram.com/chalher_paris" target="_blank" class="social-item">📸 Instagram</a>
             </div>
-            
-            <p class="copyright">© 2026 CHALHER Paris. Tous droits réservés.</p>
+            <p class="copyright">© 2026 CHALHER Paris - Luxe Juste.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>b
