@@ -1,50 +1,37 @@
-
-let cart = [];
-
-// Gallery Generation
 document.addEventListener('DOMContentLoaded', () => {
     const gallery = document.getElementById('gallery');
+    const modal = document.getElementById('productModal');
+    const modalImg = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Men hijab1 tal hijab18 (0 f hero)
     for (let i = 1; i <= 18; i++) {
-        const div = document.createElement('div');
-        div.className = 'product-card';
-        div.innerHTML = `<img src="images/hijab${i}.jpeg"><p style="text-align:center; margin-top:10px; font-size:12px;">MODÈLE N°${i}</p>`;
-        div.onclick = () => openProduct(i);
-        gallery.appendChild(div);
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <img src="images/hijab${i}.jpeg" alt="CHALHER N°${i}" loading="lazy">
+            <p style="margin-top:10px; font-size:11px; font-weight:bold; letter-spacing:1px;">MODÈLE EXCELLENCE N°${i}</p>
+        `;
+        card.onclick = () => {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            modalImg.src = `images/hijab${i}.jpeg`;
+            modalTitle.innerText = `MODÈLE EXCELLENCE N°${i} - CHALHER PARIS`;
+        };
+        gallery.appendChild(card);
+    }
+
+    closeBtn.onclick = () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    window.onclick = (e) => {
+        if (e.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
     }
 });
 
-function openProduct(index) {
-    document.getElementById('modalImage').src = `images/hijab${index}.jpeg`;
-    document.getElementById('modalTitle').innerText = `MODÈLE PRESTIGE N°${index}`;
-    document.getElementById('productModal').style.display = "block";
-    document.getElementById('add-to-cart-btn').onclick = () => addToCart(index);
-}
-
-function addToCart(index) {
-    cart.push({ name: `Modèle N°${index}`, price: 54.95, img: `images/hijab${index}.jpeg` });
-    updateCart();
-    closeModal();
-    toggleCart();
-}
-
-function updateCart() {
-    const items = document.getElementById('cart-items');
-    items.innerHTML = cart.map((item, i) => `
-        <div style="display:flex; gap:10px; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
-            <img src="${item.img}" width="50">
-            <div><p style="font-size:12px;">${item.name}</p><p>54.95 €</p></div>
-        </div>
-    `).join('');
-    document.getElementById('cart-count').innerText = cart.length;
-    document.getElementById('total-price').innerText = (cart.length * 54.95).toFixed(2);
-}
-
-function toggleCart() { document.getElementById('side-cart').classList.toggle('active'); }
-function openLogin() { document.getElementById('loginModal').style.display = "block"; }
-function closeLogin() { document.getElementById('loginModal').style.display = "none"; }
-function closeModal() { document.getElementById('productModal').style.display = "none"; }
-function toggleFlags() { document.getElementById('flags-box').style.display = document.getElementById('flags-box').style.display === "block" ? "none" : "block"; }
-function togglePassword() {
-    const p = document.getElementById('loginPassword');
-    p.type = p.type === "password" ? "text" : "password";
-}
