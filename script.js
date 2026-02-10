@@ -18,7 +18,7 @@ function showModal(productID){
   currentMainID = productID;
   const product = document.querySelector(`.product[data-id='${productID}']`);
   const description = product.dataset.description;
-  let mainImgSrc = `images/hijab${productID}.jpg`;
+  let mainImgSrc = `images/hijab${productID}.jpeg `;
 
   let html = `<button class="prev">&#10094;</button>
               <img src="${mainImgSrc}" class="main-img">
@@ -28,7 +28,7 @@ function showModal(productID){
               <button class="next">&#10095;</button>
               <div class="related">`;
   relatedItems[productID].forEach(rid=>{
-    html += `<img src="images/hijab${rid}.jpg" class="related-img">`;
+    html += `<img src="images/hijab${rid}.jpeg" class="related-img">`;
   });
   html += `</div>`;
   modal.innerHTML = html;
