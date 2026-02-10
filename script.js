@@ -1,6 +1,4 @@
 const products = document.querySelectorAll(".product");
-
-// Related items mapping
 const relatedItems = {
   "1":["2","3","4"], "2":["1","5","6"], "3":["1","7","8"], "4":["2","9","10"],
   "5":["6","11","12"], "6":["5","7","13"], "7":["3","6","14"], "8":["3","9","15"],
@@ -12,7 +10,6 @@ const relatedItems = {
 const modal = document.createElement("div");
 modal.classList.add("modal");
 document.body.appendChild(modal);
-
 let currentMainID = null;
 
 function showModal(productID){
@@ -28,48 +25,36 @@ function showModal(productID){
   html += `</div>`;
   modal.innerHTML = html;
   modal.classList.add("show");
-
   addModalListeners();
 }
 
 function addModalListeners(){
   const mainImg = modal.querySelector(".main-img");
-  const relatedImgs = modal.querySelectorAll(".related-img");
-
-  relatedImgs.forEach(rimg=>{
+  modal.querySelectorAll(".related-img").forEach(rimg=>{
     rimg.addEventListener("click", ()=>{
       mainImg.src = rimg.src;
       mainImg.classList.remove("fadeIn");
-      void mainImg.offsetWidth; // trigger reflow
+      void mainImg.offsetWidth;
       mainImg.classList.add("fadeIn");
     });
   });
-
-  modal.querySelector(".prev").addEventListener("click", ()=>{
-    navigateCarousel(-1);
-  });
-  modal.querySelector(".next").addEventListener("click", ()=>{
-    navigateCarousel(1);
-  });
+  modal.querySelector(".prev").addEventListener("click", ()=>navigateCarousel(-1));
+  modal.querySelector(".next").addEventListener("click", ()=>navigateCarousel(1));
 }
 
 function navigateCarousel(direction){
   let arr = [currentMainID,...relatedItems[currentMainID]];
   let currentIndex = arr.indexOf(parseInt(currentMainID));
-  let newIndex = (currentIndex + direction + arr.length) % arr.length;
-  currentMainID = arr[newIndex];
+  currentMainID = arr[(currentIndex + direction + arr.length) % arr.length];
   showModal(currentMainID);
 }
 
-// Open modal on product click
 products.forEach(prod=>{
   prod.addEventListener("click", ()=>{
-    const id = prod.dataset.id;
-    showModal(id);
+    showModal(prod.dataset.id);
   });
 });
 
-// Close modal if click outside image
 modal.addEventListener("click", e=>{
   if(e.target === modal) modal.classList.remove("show");
 });
