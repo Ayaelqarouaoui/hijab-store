@@ -1,199 +1,57 @@
-:root {
-    --gold: #d4af37;
-    --dark: #121212;
-    --light-bg: #fdfdfd;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.getElementById('gallery');
+    const modal = document.getElementById('productModal');
+    const modalImg = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const suggestionsGrid = document.getElementById("suggestionsGrid");
+    const closeBtn = document.querySelector(".close-modal");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    // Boucle pour afficher hijab1.jpeg à hijab18.jpeg dans la galerie
+    for (let i = 1; i <= 18; i++) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        
+        card.innerHTML = `
+            <img src="images/hijab${i}.jpeg" alt="CHALHER Modèle ${i}" loading="lazy">
+            <p class="product-name">CHALHER Édition N°${i}</p>
+        `;
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--light-bg);
-    color: var(--dark);
-    line-height: 1.6;
-    scroll-behavior: smooth;
-}
+        card.onclick = () => openModal(i);
+        gallery.appendChild(card);
+    }
 
-/* Navigation */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.98);
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-}
+    // Ouvrir la fenêtre modale
+    function openModal(index) {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Bloque le scroll arrière
+        
+        modalImg.src = `images/hijab${index}.jpeg`;
+        modalTitle.innerText = `Édition Prestige N°${index}`;
+        
+        // Générer 4 suggestions aléatoires
+        suggestionsGrid.innerHTML = "";
+        for(let j = 0; j < 4; j++) {
+            let randomIdx = Math.floor(Math.random() * 18) + 1;
+            const sImg = document.createElement('img');
+            sImg.src = `images/hijab${randomIdx}.jpeg`;
+            sImg.onclick = (e) => {
+                e.stopPropagation();
+                openModal(randomIdx);
+            };
+            suggestionsGrid.appendChild(sImg);
+        }
+    }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+    // Fermer la modale
+    closeBtn.onclick = () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
 
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 4px;
-}
-
-.logo span {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    display: block;
-    text-align: center;
-    margin-top: -5px;
-}
-
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 40px; }
-nav ul li a {
-    text-decoration: none;
-    color: var(--dark);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover { color: var(--gold); }
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('https://images.unsplash.com/photo-1511130558040-bb33bd14337b?q=80&w=2000') center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 8vw, 4rem);
-    margin-bottom: 20px;
-    font-weight: 400;
-}
-
-.btn-discover {
-    padding: 15px 40px;
-    border: 1px solid white;
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 13px;
-    transition: 0.4s;
-}
-
-.btn-discover:hover {
-    background: white;
-    color: black;
-}
-
-/* Grille de Produits */
-.gallery-section {
-    max-width: 1200px;
-    margin: 100px auto;
-    padding: 0 20px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.line {
-    width: 50px;
-    height: 2px;
-    background: var(--gold);
-    margin: 0 auto;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-}
-
-.product-card {
-    text-align: center;
-    transition: 0.3s;
-}
-
-.img-container {
-    overflow: hidden;
-    margin-bottom: 15px;
-    background: #f0f0f0;
-}
-
-.product-card img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-}
-
-.product-card:hover img {
-    transform: scale(1.05);
-}
-
-.product-name {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Footer */
-footer {
-    background: #111;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    margin-bottom: 20px;
-    letter-spacing: 5px;
-}
-
-.social-links { margin: 40px 0; }
-.social-item {
-    color: var(--gold);
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-.copyright {
-    font-size: 11px;
-    opacity: 0.4;
-    margin-top: 40px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .grid-container { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2.5rem; }
-}
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+});
