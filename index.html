@@ -1,4 +1,3 @@
-            
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,72 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHALHER Paris | Maison de Luxe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav>
+        <div class="header-container">
+            <div class="menu-burger"><i class="fas fa-bars"></i></div>
             <div class="logo">CHALHER <span>PARIS</span></div>
-            <ul>
-                <li><a href="#collection">Collection</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user"></i>
+                <i class="fas fa-shopping-bag"></i>
+            </div>
+        </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <h1>CHALHER PARIS</h1>
-            <p>Portez l'exception au quotidien</p>
-            <a href="#collection" class="btn-discover">Voir la Collection</a>
+            <p>COLLECTION RAMADAN-AÏD 2026</p>
+            <a href="#collection" class="btn-discover">VOIR LA COLLECTION</a>
         </div>
     </section>
 
+    <section class="reassurance">
+        <div class="re-item"><i class="fas fa-truck"></i> LIVRAISON OFFERTE</div>
+        <div class="re-item"><i class="fas fa-sync"></i> SATISFAIT OU REMBOURSÉ</div>
+        <div class="re-item"><i class="fas fa-lock"></i> PAIEMENT SÉCURISÉ</div>
+    </section>
+
     <section id="collection" class="gallery-section">
-        <div class="section-title">
-            <h2>Nos Créations</h2>
-            <div class="line"></div>
-        </div>
         <div class="grid-container" id="gallery"></div>
     </section>
 
     <div id="productModal" class="modal">
-        <span class="close-modal">&times;</span>
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="modal-img-container">
+            <span class="close-modal">&times;</span>
+            <div class="product-page-flex">
+                <div class="product-view">
                     <img id="modalImage" src="" alt="">
                 </div>
-                <div class="modal-details">
-                    <h2 id="modalTitle">Modèle CHALHER</h2>
-                    <p class="price">Exclusivité Parisienne</p>
-                    <div class="line"></div>
-                    <p class="description">
-                        Pièce unique confectionnée avec des matières nobles. 
-                        Design raffiné pour une élégance intemporelle.
-                    </p>
-                    <a href="https://instagram.com/chalher_paris" target="_blank" class="btn-insta">Commander sur Instagram</a>
+                <div class="product-info">
+                    <nav class="breadcrumb">CHALHER SHOP / NOUVEAUTÉS</nav>
+                    <h2 id="modalTitle">MODÈLE CHALHER</h2>
+                    <div class="stock-tag">! Derniers articles en stock</div>
+                    <p class="product-price">54,95 € <span class="ttc">TTC</span></p>
+                    
+                    <div class="personalisation-box">
+                        <h4>Personnalisation</h4>
+                        <p>N'oubliez pas de sauvegarder votre personnalisation pour pouvoir l'ajouter au panier</p>
+                        <label>Indiquez le message à y inscrire :</label>
+                        <textarea placeholder="Votre message ici..."></textarea>
+                        <span class="optional">optionnel</span>
+                    </div>
+                    
+                    <button class="add-to-cart">AJOUTER AU PANIER</button>
                 </div>
-            </div>
-            <div class="suggestions">
-                <h3>Vous aimerez aussi</h3>
-                <div class="suggestions-grid" id="suggestionsGrid"></div>
             </div>
         </div>
     </div>
 
-    <footer id="contact">
-        <div class="footer-inner">
-            <div class="footer-logo">CHALHER</div>
-            <div class="social-links">
-                <a href="#" class="social-item">📞 Contact</a>
-                <a href="https://instagram.com/chalher_paris" target="_blank" class="social-item">📸 Instagram</a>
-            </div>
-            <p class="copyright">© 2026 CHALHER Paris.</p>
+    <footer>
+        <div class="footer-links">
+            <div class="f-col"><h4>INFORMATIONS</h4><p>Contactez-nous</p><p>Livraison</p></div>
+            <div class="f-col"><h4>NOS LIENS</h4><p>Blog</p><p>Ramadan 2026</p></div>
+            <div class="f-col"><h4>MON COMPTE</h4><p>Mes commandes</p></div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 CHALHER Paris. Luxe et Élégance.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>            
+
