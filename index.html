@@ -1,140 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOOR HIJAB</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHALHER Paris | Maison de Châles de Luxe</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Sidebar vertical -->
-<div class="sidebar">
-  <a href="#home" class="active"><span>🏠</span> Accueil</a>
-  <a href="#collection"><span>🛍️</span> Collection</a>
-  <a href="#about"><span>ℹ️</span> À propos</a>
-  <a href="#contact"><span>📞</span> Contact</a>
-</div>
+    <header>
+        <nav>
+            <div class="logo">CHALHER <span>PARIS</span></div>
+            <ul>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Hero -->
-<section id="home" class="hero">
-  <img src="images/hero1.jpeg" alt="Elegant Hijabs">
-  <div class="hero-text">
-    <h1>NOOR HIJAB Boutique</h1>
-    <p>L’élégance au quotidien pour toutes les femmes</p>
-    <a href="#collection" class="btn-main">Shop Now</a>
-  </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Portez l'exception.</h1>
+            <p>L'art du châle moderne et raffiné.</p>
+            <a href="#collection" class="btn-discover">Voir la Collection</a>
+        </div>
+    </section>
 
-<!-- Collection -->
-<section id="collection" class="collection">
-  <h2>Notre Collection</h2>
-  <div class="products-grid">
-    <!-- 18 produits -->
-    <div class="product" data-id="1" data-description="Châle léger en coton, parfait pour l’été.">
-      <img src="images/hijab1.jpeg" alt="Châle 1">
-      <h3>Châle 1</h3>
-      <p class="price">79 MAD</p>
-    </div>
-    <div class="product" data-id="2" data-description="Châle en mousseline, doux et respirant.">
-      <img src="images/hijab2.jpeg" alt="Châle 2">
-      <h3>Châle 2</h3>
-      <p class="price">99 MAD</p>
-    </div>
-    <div class="product" data-id="3" data-description="Châle en satin luxueux pour toutes occasions.">
-      <img src="images/hijab3.jpeg" alt="Châle 3">
-      <h3>Châle 3</h3>
-      <p class="price">129 MAD</p>
-    </div>
-    <div class="product" data-id="4" data-description="Châle en soie douce et élégante pour les fêtes.">
-      <img src="images/hijab4.jpeg" alt="Châle 4">
-      <h3>Châle 4</h3>
-      <p class="price">159 MAD</p>
-    </div>
-    <div class="product" data-id="5" data-description="Châle léger à motifs floraux, style bohème.">
-      <img src="images/hijab5.jpeg" alt="Châle 5">
-      <h3>Châle 5</h3>
-      <p class="price">79 MAD</p>
-    </div>
-    <div class="product" data-id="6" data-description="Châle en coton épais pour l’hiver, chaud et doux.">
-      <img src="images/hijab6.jpeg" alt="Châle 6">
-      <h3>Châle 6</h3>
-      <p class="price">99 MAD</p>
-    </div>
-    <div class="product" data-id="7" data-description="Châle élégant uni, parfait pour le quotidien.">
-      <img src="images/hijab7.jpeg" alt="Châle 7">
-      <h3>Châle 7</h3>
-      <p class="price">129 MAD</p>
-    </div>
-    <div class="product" data-id="8" data-description="Châle doux en viscose, idéal pour toutes saisons.">
-      <img src="images/hijab8.jpeg" alt="Châle 8">
-      <h3>Châle 8</h3>
-      <p class="price">99 MAD</p>
-    </div>
-    <div class="product" data-id="9" data-description="Châle à motifs géométriques, design moderne.">
-      <img src="images/hijab9.jpeg" alt="Châle 9">
-      <h3>Châle 9</h3>
-      <p class="price">159 MAD</p>
-    </div>
-    <div class="product" data-id="10" data-description="Châle léger pastel, style élégant et discret.">
-      <img src="images/hijab10.jpeg" alt="Châle 10">
-      <h3>Châle 10</h3>
-      <p class="price">79 MAD</p>
-    </div>
-    <div class="product" data-id="11" data-description="Châle coloré en coton, idéal pour les sorties.">
-      <img src="images/hijab11.jpeg" alt="Châle 11">
-      <h3>Châle 11</h3>
-      <p class="price">99 MAD</p>
-    </div>
-    <div class="product" data-id="12" data-description="Châle élégant avec bordure brodée.">
-      <img src="images/hijab12.jpeg" alt="Châle 12">
-      <h3>Châle 12</h3>
-      <p class="price">129 MAD</p>
-    </div>
-    <div class="product" data-id="13" data-description="Châle en soie avec motifs dorés pour occasions spéciales.">
-      <img src="images/hijab13.jpeg" alt="Châle 13">
-      <h3>Châle 13</h3>
-      <p class="price">159 MAD</p>
-    </div>
-    <div class="product" data-id="14" data-description="Châle léger en coton imprimé floral.">
-      <img src="images/hijab14.jpeg" alt="Châle 14">
-      <h3>Châle 14</h3>
-      <p class="price">79 MAD</p>
-    </div>
-    <div class="product" data-id="15" data-description="Châle en mousseline uni, style moderne et chic.">
-      <img src="images/hijab15.jpeg" alt="Châle 15">
-      <h3>Châle 15</h3>
-      <p class="price">99 MAD</p>
-    </div>
-    <div class="product" data-id="16" data-description="Châle épais pour hiver, confortable et chaud.">
-      <img src="images/hijab16.jpeg" alt="Châle 16">
-      <h3>Châle 16</h3>
-      <p class="price">129 MAD</p>
-    </div>
-    <div class="product" data-id="17" data-description="Châle uni élégant, facile à assortir avec vos tenues.">
-      <img src="images/hijab17.jpeg" alt="Châle 17">
-      <h3>Châle 17</h3>
-      <p class="price">159 MAD</p>
-    </div>
-    <div class="product" data-id="18" data-description="Châle léger à motifs délicats, parfait pour l’été.">
-      <img src="images/hijab18.jpeg" alt="Châle 18">
-      <h3>Châle 18</h3>
-      <p class="price">79 MAD</p>
-    </div>
-  </div>
-</section>
+    <section id="collection" class="gallery-section">
+        <div class="section-title">
+            <h2>Nos Pièces Signature</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="grid-container" id="gallery"></div>
+    </section>
 
-<section id="about" class="about">
-  <h2>À propos</h2>
-  <p>NOOR HIJAB est une marque dédiée aux femmes modernes, proposant des châles élégants alliant confort et raffinement.</p>
-</section>
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-logo">CHALHER</div>
+            <p>Conception artisanale & Matières nobles</p>
+            
+            <div class="social-links">
+                <a href="tel:+212600000000" class="social-item">📞 +212 6 XX XX XX XX</a>
+                <a href="https://www.instagram.com/nom_de_ton_compte" target="_blank" class="social-item">📸 Instagram</a>
+            </div>
+            
+            <p class="copyright">© 2026 CHALHER Paris. Tous droits réservés.</p>
+        </div>
+    </footer>
 
-<footer id="contact">
-  <p>📞 WhatsApp : +212 6 12 34 56 78</p>
-  <p>📷 Instagram : <a href="https://instagram.com/noorhijab" target="_blank">@noorhijab</a></p>
-  <p>© 2026 NOOR HIJAB</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
