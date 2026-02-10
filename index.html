@@ -3,82 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHALHER Paris | Maison de Luxe</title>
+    <title>CHALHER Paris | Boutique Officielle</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <div class="header-container">
-            <div class="menu-burger"><i class="fas fa-bars"></i></div>
-            <div class="logo">CHALHER <span>PARIS</span></div>
-            <div class="header-icons">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-user"></i>
-                <i class="fas fa-shopping-bag"></i>
+        <div class="header-top">
+            <div class="top-left">
+                <div class="currency-selector" onclick="toggleFlags()">
+                    <span>EUR €</span> <i class="fas fa-chevron-down" id="arrow-icon"></i>
+                    <div class="flags-dropdown" id="flags-box">
+                        <div class="flag-item"><img src="https://flagcdn.com/w20/fr.png"> France (EUR)</div>
+                        <div class="flag-item"><img src="https://flagcdn.com/w20/ma.png"> Maroc (MAD)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-center">
+                <div class="search-bar">
+                    <input type="text" placeholder="RECHERCHER UN PRODUIT">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-icons">
+                    <div class="user-link" onclick="openLogin()">
+                        <i class="far fa-user"></i> <span>SE CONNECTER</span>
+                    </div>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cart-count">0</span>
+                        <span class="cart-text">PANIER</span>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="logo-area">
+            <div class="logo">CHALHER <span>PARIS</span></div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">JILBAB</a></li>
+                <li><a href="#">ABAYA</a></li>
+                <li><a href="#">FEMME</a></li>
+                <li><a href="#">HIJAB</a></li>
+                <li class="sale"><a href="#">PROMOS</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>CHALHER PARIS</h1>
-            <p>COLLECTION RAMADAN-AÏD 2026</p>
+            <h1>Portez l'exception.</h1>
+            <p>L'art du châle moderne et raffiné.</p>
             <a href="#collection" class="btn-discover">VOIR LA COLLECTION</a>
         </div>
-    </section>
-
-    <section class="reassurance">
-        <div class="re-item"><i class="fas fa-truck"></i> LIVRAISON OFFERTE</div>
-        <div class="re-item"><i class="fas fa-sync"></i> SATISFAIT OU REMBOURSÉ</div>
-        <div class="re-item"><i class="fas fa-lock"></i> PAIEMENT SÉCURISÉ</div>
     </section>
 
     <section id="collection" class="gallery-section">
         <div class="grid-container" id="gallery"></div>
     </section>
 
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-content">
+            <span class="close-modal" onclick="closeLogin()">&times;</span>
+            <div class="login-container">
+                <h2>CONNECTEZ-VOUS À VOTRE COMPTE</h2>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="votre@email.com">
+                </div>
+                <div class="input-group">
+                    <label>Mot de passe</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="loginPassword">
+                        <button class="btn-show" onclick="togglePassword()">MONTRER</button>
+                    </div>
+                </div>
+                <button class="btn-login" onclick="confirmPurchase()">SE CONNECTER</button>
+                <p class="no-account">Pas de compte ? <a href="#">Créez-en un ici !</a></p>
+            </div>
+        </div>
+    </div>
+
     <div id="productModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
             <div class="product-page-flex">
-                <div class="product-view">
-                    <img id="modalImage" src="" alt="">
-                </div>
+                <div class="product-view"><img id="modalImage" src=""></div>
                 <div class="product-info">
-                    <nav class="breadcrumb">CHALHER SHOP / NOUVEAUTÉS</nav>
-                    <h2 id="modalTitle">MODÈLE CHALHER</h2>
-                    <div class="stock-tag">! Derniers articles en stock</div>
+                    <h2 id="modalTitle"></h2>
                     <p class="product-price">54,95 € <span class="ttc">TTC</span></p>
-                    
                     <div class="personalisation-box">
                         <h4>Personnalisation</h4>
-                        <p>N'oubliez pas de sauvegarder votre personnalisation pour pouvoir l'ajouter au panier</p>
-                        <label>Indiquez le message à y inscrire :</label>
                         <textarea placeholder="Votre message ici..."></textarea>
-                        <span class="optional">optionnel</span>
                     </div>
-                    
-                    <button class="add-to-cart">AJOUTER AU PANIER</button>
+                    <button id="add-to-cart-btn" class="add-to-cart">AJOUTER AU PANIER</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-links">
-            <div class="f-col"><h4>INFORMATIONS</h4><p>Contactez-nous</p><p>Livraison</p></div>
-            <div class="f-col"><h4>NOS LIENS</h4><p>Blog</p><p>Ramadan 2026</p></div>
-            <div class="f-col"><h4>MON COMPTE</h4><p>Mes commandes</p></div>
+    <div id="side-cart" class="side-cart">
+        <div class="cart-header"><h3>PANIER</h3><span onclick="toggleCart()">&times;</span></div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <p>Total: <span id="total-price">0.00</span> €</p>
+            <button class="btn-checkout" onclick="alert('Passage en caisse...')">COMMANDER</button>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 CHALHER Paris. Luxe et Élégance.</p>
+    </div>
+
+    <section class="footer-reassurance">
+        <div class="re-container">
+            <div class="re-box"><i class="fas fa-truck"></i><span>LIVRAISON OFFERTE</span></div>
+            <div class="re-box"><i class="fas fa-lock"></i><span>PAIEMENT SÉCURISÉ</span></div>
+            <div class="re-box"><i class="fas fa-sync"></i><span>SATISFAIT OU REMBOURSÉ</span></div>
         </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>À PROPOS</h4><p>Boutique de luxe pour la femme musulmane moderne.</p></div>
+            <div class="footer-col"><h4>LIENS</h4><ul><li>Contact</li><li>Mentions Légales</li></ul></div>
+            <div class="footer-col"><h4>COMPTE</h4><ul><li>Mon Compte</li><li>Mes Commandes</li></ul></div>
+        </div>
+        <div class="footer-bottom">© 2026 CHALHER Paris.</div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html>            
-
+</html>
