@@ -6,52 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const suggestionsGrid = document.getElementById("suggestionsGrid");
     const closeBtn = document.querySelector(".close-modal");
 
-    // Boucle pour afficher hijab1.jpeg à hijab18.jpeg dans la galerie
+    // Loop mn hijab1 tal hijab18 (7it 0 raha f hero)
     for (let i = 1; i <= 18; i++) {
         const card = document.createElement('div');
         card.className = 'product-card';
-        
         card.innerHTML = `
-            <img src="images/hijab${i}.jpeg" alt="CHALHER Modèle ${i}" loading="lazy">
-            <p class="product-name">CHALHER Édition N°${i}</p>
+            <img src="images/hijab${i}.jpeg" alt="Modèle ${i}" loading="lazy">
+            <p style="margin-top:10px; font-size:12px; letter-spacing:1px;">CHALHER MODÈLE N°${i}</p>
         `;
-
         card.onclick = () => openModal(i);
         gallery.appendChild(card);
     }
 
-    // Ouvrir la fenêtre modale
     function openModal(index) {
         modal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Bloque le scroll arrière
-        
+        document.body.style.overflow = "hidden";
         modalImg.src = `images/hijab${index}.jpeg`;
         modalTitle.innerText = `Édition Prestige N°${index}`;
         
-        // Générer 4 suggestions aléatoires
+        // 4 suggestions Pinterest style
         suggestionsGrid.innerHTML = "";
         for(let j = 0; j < 4; j++) {
-            let randomIdx = Math.floor(Math.random() * 18) + 1;
+            let rand = Math.floor(Math.random() * 18) + 1;
             const sImg = document.createElement('img');
-            sImg.src = `images/hijab${randomIdx}.jpeg`;
-            sImg.onclick = (e) => {
-                e.stopPropagation();
-                openModal(randomIdx);
-            };
+            sImg.src = `images/hijab${rand}.jpeg`;
+            sImg.onclick = (e) => { e.stopPropagation(); openModal(rand); };
             suggestionsGrid.appendChild(sImg);
         }
     }
 
-    // Fermer la modale
-    closeBtn.onclick = () => {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    }
+    closeBtn.onclick = () => { modal.style.display = "none"; document.body.style.overflow = "auto"; }
+    window.onclick = (e) => { if (e.target == modal) { modal.style.display = "none"; document.body.style.overflow = "auto"; } }
 });
