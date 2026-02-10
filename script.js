@@ -1,5 +1,6 @@
 const products = document.querySelectorAll(".product");
 
+// Related items mapping
 const relatedItems = {
   "1":["2","3","4"], "2":["1","5","6"], "3":["1","7","8"], "4":["2","9","10"],
   "5":["6","11","12"], "6":["5","7","13"], "7":["3","6","14"], "8":["3","9","15"],
@@ -16,15 +17,11 @@ let currentMainID = null;
 
 function showModal(productID){
   currentMainID = productID;
-  const product = document.querySelector(`.product[data-id='${productID}']`);
-  const description = product.dataset.description;
-  let mainImgSrc = `images/hijab${productID}.jpeg `;
-
+  let mainImgSrc = `images/hijab${productID}.jpeg`;
+  let description = document.querySelector(`.product[data-id="${productID}"]`).dataset.description;
   let html = `<button class="prev">&#10094;</button>
               <img src="${mainImgSrc}" class="main-img">
-              <h3 class="modal-title">${product.querySelector("h3").innerText}</h3>
-              <p class="modal-desc">${description}</p>
-              <p class="modal-price">${product.querySelector(".price").innerText}</p>
+              <p class="description">${description}</p>
               <button class="next">&#10095;</button>
               <div class="related">`;
   relatedItems[productID].forEach(rid=>{
@@ -44,6 +41,9 @@ function addModalListeners(){
   relatedImgs.forEach(rimg=>{
     rimg.addEventListener("click", ()=>{
       mainImg.src = rimg.src;
+      mainImg.classList.remove("fadeIn");
+      void mainImg.offsetWidth;
+      mainImg.classList.add("fadeIn");
     });
   });
 
@@ -56,13 +56,14 @@ function addModalListeners(){
 }
 
 function navigateCarousel(direction){
-  let arr = [currentMainID,...relatedItems[currentMainID]];
+  let arr = [parseInt(currentMainID),...relatedItems[currentMainID].map(Number)];
   let currentIndex = arr.indexOf(parseInt(currentMainID));
   let newIndex = (currentIndex + direction + arr.length) % arr.length;
+  showModal(arr[newIndex]);
   currentMainID = arr[newIndex];
-  showModal(currentMainID);
 }
 
+// Open modal on product click
 products.forEach(prod=>{
   prod.addEventListener("click", ()=>{
     const id = prod.dataset.id;
@@ -70,6 +71,7 @@ products.forEach(prod=>{
   });
 });
 
+// Close modal if click outside image
 modal.addEventListener("click", e=>{
   if(e.target === modal) modal.classList.remove("show");
 });
