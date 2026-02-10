@@ -16,9 +16,15 @@ let currentMainID = null;
 
 function showModal(productID){
   currentMainID = productID;
+  const product = document.querySelector(`.product[data-id='${productID}']`);
+  const description = product.dataset.description;
   let mainImgSrc = `images/hijab${productID}.jpg`;
+
   let html = `<button class="prev">&#10094;</button>
               <img src="${mainImgSrc}" class="main-img">
+              <h3 class="modal-title">${product.querySelector("h3").innerText}</h3>
+              <p class="modal-desc">${description}</p>
+              <p class="modal-price">${product.querySelector(".price").innerText}</p>
               <button class="next">&#10095;</button>
               <div class="related">`;
   relatedItems[productID].forEach(rid=>{
