@@ -11,13 +11,39 @@
 </head>
 <body>
 
+    <a href="https://wa.me/212600000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="searchOverlay" class="search-overlay">
+        <div class="search-container">
+            <input type="text" placeholder="Rechercher un modèle..." id="searchInput">
+            <span class="close-search">&times;</span>
+        </div>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <span class="close-menu">&times;</span>
+        <nav>
+            <div class="logo-menu">
+                <img src="logo.jpeg" alt="CHALHER" style="height: 50px; margin-bottom: 20px;">
+            </div>
+            <a href="#">ACCUEIL</a>
+            <a href="#collection">COLLECTION</a>
+            <a href="https://wa.me/212600000000" target="_blank"><i class="fab fa-whatsapp"></i> CONTACT WHATSAPP</a>
+            <a href="https://instagram.com/votre_compte" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+        </nav>
+    </div>
+
     <header>
         <div class="header-container">
             <div class="menu-burger"><i class="fas fa-bars"></i></div>
-            <div class="logo">CHALHER <span>PARIS</span></div>
+            <div class="logo">
+                <img src="logo.jpg" alt="CHALHER PARIS" style="height: 60px; cursor: pointer;">
+            </div>
             <div class="header-icons">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-user"></i>
+                <i class="fas fa-search" id="searchBtn"></i>
+                <i class="fas fa-user" id="userIcon"></i>
                 <i class="fas fa-shopping-bag"></i>
             </div>
         </div>
@@ -29,12 +55,6 @@
             <p>COLLECTION RAMADAN-AÏD 2026</p>
             <a href="#collection" class="btn-discover">VOIR LA COLLECTION</a>
         </div>
-    </section>
-
-    <section class="reassurance">
-        <div class="re-item"><i class="fas fa-truck"></i> LIVRAISON OFFERTE</div>
-        <div class="re-item"><i class="fas fa-sync"></i> SATISFAIT OU REMBOURSÉ</div>
-        <div class="re-item"><i class="fas fa-lock"></i> PAIEMENT SÉCURISÉ</div>
     </section>
 
     <section id="collection" class="gallery-section">
@@ -56,8 +76,7 @@
                     
                     <div class="personalisation-box">
                         <h4>Personnalisation</h4>
-                        <p>N'oubliez pas de sauvegarder votre personnalisation pour pouvoir l'ajouter au panier</p>
-                        <label>Indiquez le message à y inscrire :</label>
+                        <p>N'oubliez pas de sauvegarder votre personnalisation</p>
                         <textarea placeholder="Votre message ici..."></textarea>
                         <span class="optional">optionnel</span>
                     </div>
@@ -65,16 +84,71 @@
                     <button class="add-to-cart">AJOUTER AU PANIER</button>
                 </div>
             </div>
+
+            <div class="related-products">
+                <h3>VOUS POURRIEZ AUSSI AIMER</h3>
+                <div id="recommendedGrid" class="recommended-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartModal" class="cart-confirmation-modal">
+        <div class="cart-modal-content">
+            <h3>Produit ajouté avec succès !</h3>
+            <div class="cart-modal-buttons">
+                <button id="continueShopping" class="btn-secondary">CONTINUER</button>
+                <button id="goToCheckout" class="btn-primary">PAYER</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <span class="close-checkout">&times;</span>
+            <h2>Informations de Paiement</h2>
+            <form id="paymentForm">
+                <input type="text" placeholder="Nom sur la carte" required>
+                <input type="text" placeholder="Numéro de carte" maxlength="16" required>
+                <div class="form-row">
+                    <input type="text" placeholder="MM/AA" maxlength="5" required>
+                    <input type="text" placeholder="CVC" maxlength="3" required>
+                </div>
+                <button type="submit" class="btn-pay">PAYER MAINTENANT</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="loginModal" class="login-modal">
+        <div class="login-content">
+            <span class="close-login">&times;</span>
+            <h2>Mon Compte CHALHER</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Adresse e-mail" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit" class="btn-pay">SE CONNECTER</button>
+            </form>
         </div>
     </div>
 
     <footer>
         <div class="footer-links">
-            <div class="f-col"><h4>INFORMATIONS</h4><p>Contactez-nous</p><p>Livraison</p></div>
-            <div class="f-col"><h4>NOS LIENS</h4><p>Blog</p><p>Ramadan 2026</p></div>
-            <div class="f-col"><h4>MON COMPTE</h4><p>Mes commandes</p></div>
+            <div class="f-col">
+                <h4>INFORMATIONS</h4>
+                <p><a href="https://wa.me/212600000000" target="_blank">Contactez-nous</a></p>
+                <p><a href="#">Livraison</a></p>
+            </div>
+            <div class="f-col">
+                <h4>NOS LIENS</h4>
+                <p><a href="#">Blog</a></p>
+                <p><a href="#collection">Ramadan 2026</a></p>
+            </div>
+            <div class="f-col">
+                <h4>MON COMPTE</h4>
+                <p><a href="javascript:void(0)" id="openLoginFooter">Mes commandes</a></p>
+            </div>
         </div>
         <div class="footer-bottom">
+            <img src="logo.jpg" alt="CHALHER" style="height: 35px; margin-bottom: 10px; opacity: 0.7;">
             <p>© 2026 CHALHER Paris. Luxe et Élégance.</p>
         </div>
     </footer>
