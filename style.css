@@ -1,56 +1,43 @@
 :root { --gold: #c5a059; --dark: #000; --red-price: #b51c1c; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; background: #fff; scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; background: #fff; scroll-behavior: smooth; overflow-x: hidden; }
 
-/* Header */
-header { background: #fff; padding: 15px 5%; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 5000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-decoration: none; }
+
+/* Header & Logo */
+header { padding: 15px 5%; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 1000; }
 .header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
-.logo { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: bold; letter-spacing: 4px; text-align: center; }
-.logo span { font-size: 10px; color: var(--gold); display: block; letter-spacing: 2px; }
+.logo img { height: 60px; object-fit: contain; }
 .header-icons i, .menu-burger i { font-size: 18px; margin-left: 20px; cursor: pointer; }
 
-/* Hero */
-.hero { 
-    height: 80vh; 
-    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/hijab0.jpeg') center/cover no-repeat; 
-    display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
-}
-.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; letter-spacing: 2px; }
-.btn-discover { padding: 12px 30px; border: 1px solid #fff; color: #fff; text-decoration: none; font-size: 11px; margin-top: 20px; display: inline-block; }
+/* Side Menu */
+.side-menu { position: fixed; top: 0; left: -100%; width: 300px; height: 100%; background: #fff; z-index: 2500; transition: 0.4s; padding: 40px; box-shadow: 5px 0 15px rgba(0,0,0,0.05); }
+.side-menu.active { left: 0; }
+.side-menu a { display: block; text-decoration: none; color: #000; font-size: 13px; margin-bottom: 25px; letter-spacing: 2px; }
 
-/* Reassurance */
-.reassurance { display: flex; justify-content: space-around; padding: 30px 5%; border-bottom: 1px solid #eee; text-align: center; }
-.re-item { font-size: 11px; font-weight: bold; }
-.re-item i { display: block; font-size: 20px; margin-bottom: 8px; color: var(--gold); }
+/* Modals */
+.modal, .cart-confirmation-modal, .checkout-modal, .login-modal, .search-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 3000; overflow-y: auto; }
+.modal-content, .checkout-content, .login-content { background: #fff; max-width: 1100px; margin: 40px auto; padding: 30px; position: relative; }
+.cart-modal-content { background: #fff; width: 350px; margin: 15% auto; padding: 30px; text-align: center; border-radius: 4px; }
 
-/* Grid */
+/* Grid Gallery */
 .gallery-section { max-width: 1300px; margin: 50px auto; padding: 0 20px; }
 .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-.product-card { cursor: pointer; }
-.product-card img { width: 100%; height: 420px; object-fit: cover; transition: 0.3s; }
-.product-card:hover img { opacity: 0.8; }
+.product-card img { width: 100%; height: 420px; object-fit: cover; cursor: pointer; transition: 0.3s; }
 
-/* Modal Style NEYSSA */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: #fff; overflow-y: auto; }
-.modal-content { max-width: 1100px; margin: 40px auto; padding: 20px; position: relative; }
-.product-page-flex { display: flex; gap: 40px; flex-wrap: wrap; }
-.product-view { flex: 1.2; }
-.product-view img { width: 100%; }
-.product-info { flex: 1; text-align: left; }
-.breadcrumb { font-size: 10px; color: #999; margin-bottom: 15px; }
-.product-info h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 10px; }
-.stock-tag { background: #ffede6; color: #ff6a28; display: inline-block; padding: 5px 10px; font-size: 11px; margin-bottom: 10px; }
-.product-price { font-size: 24px; color: var(--red-price); font-weight: bold; margin: 20px 0; }
-.personalisation-box { border: 1px solid #eee; padding: 20px; background: #fafafa; margin-bottom: 20px; }
-.personalisation-box textarea { width: 100%; height: 70px; border: 1px solid #ddd; margin-top: 10px; padding: 10px; }
-.add-to-cart { width: 100%; background: #000; color: #fff; padding: 15px; border: none; font-weight: bold; cursor: pointer; }
-.close-modal { position: absolute; right: 10px; top: -30px; font-size: 40px; cursor: pointer; }
+/* Pinterest Recommendations */
+.recommended-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+.rec-card img { width: 100%; height: 250px; object-fit: cover; cursor: pointer; transition: 0.3s; }
+
+/* Buttons & Forms */
+.add-to-cart, .btn-pay, .btn-primary { background: #000; color: #fff; border: none; padding: 16px; width: 100%; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
+.btn-secondary { background: #f4f4f4; border: none; padding: 16px; width: 100%; cursor: pointer; }
+input, textarea { width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid #ddd; outline: none; }
+.form-row { display: flex; gap: 10px; }
 
 /* Footer */
-footer { background: #000; color: #fff; padding: 50px 5%; margin-top: 50px; }
-.footer-links { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
-.f-col h4 { font-size: 12px; margin-bottom: 15px; color: var(--gold); }
-.f-col p { font-size: 11px; opacity: 0.6; margin-bottom: 8px; }
-.footer-bottom { border-top: 1px solid #222; margin-top: 30px; padding-top: 20px; text-align: center; font-size: 10px; opacity: 0.4; }
-
-@media (max-width: 768px) { .product-page-flex { flex-direction: column; } .footer-links { grid-template-columns: 1fr; gap: 30px; } }
+footer { background: #000; color: #fff; padding: 60px 5% 20px; text-align: center; }
+.footer-links { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 40px; }
+.footer-links a { color: #888; text-decoration: none; font-size: 12px; }
+.footer-links a:hover { color: var(--gold); }
