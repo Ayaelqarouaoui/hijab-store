@@ -1,36 +1,109 @@
+:root { --gold:#c5a059; }
 
-/* Khalli l-style dyalk li fih l-fond dyal l-7it hna */
-/* ... (code dyalk l-9dim) ... */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif}
 
-/* Zid ghir hado f l-lakher bach l-modals y-banou m9addin */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
-    left: 0; top: 0; 
-    width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.8);
-    overflow-y: auto;
+/* Header */
+header{padding:15px 5%;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:1000}
+.header-container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Playfair Display',serif;font-size:26px;letter-spacing:4px}
+.logo span{font-size:10px;color:var(--gold);display:block}
+.header-icons i{margin-left:20px;cursor:pointer}
+.cart-icon{position:relative}
+.cart-count{
+position:absolute;
+top:-8px;
+right:-10px;
+background:red;
+color:#fff;
+font-size:10px;
+padding:3px 6px;
+border-radius:50%;
 }
-.modal-content {
-    background: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 800px;
-    position: relative;
-    border-radius: 5px;
-}
-.checkout-box { max-width: 400px; text-align: center; }
-.checkout-box input { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ddd; }
-.btn-pay { background: #000; color: #fff; width: 100%; padding: 10px; border: none; cursor: pointer; margin-top: 10px; }
-.close-modal, .close-checkout { position: absolute; top: 10px; right: 15px; font-size: 25px; cursor: pointer; }
 
-/* Grid tsawer */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+/* Hero */
+.hero{height:80vh;background:url('images/hijab0.jpeg') center/cover;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:3rem}
+
+/* Grid */
+.gallery-section{max-width:1300px;margin:50px auto;padding:0 20px}
+.grid-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px}
+.product-card img{width:100%;height:400px;object-fit:cover;cursor:pointer}
+
+/* Modal */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:2000}
+.modal-content{max-width:900px;margin:50px auto;padding:20px}
+.close-modal{font-size:30px;cursor:pointer}
+
+/* Sidebar */
+.sidebar{
+position:fixed;
+left:-250px;
+top:0;
+width:250px;
+height:100%;
+background:#000;
+color:#fff;
+padding:40px 20px;
+transition:0.4s;
+z-index:3000;
 }
-.product-card img { width: 100%; cursor: pointer; }
+.sidebar a{display:block;color:#fff;text-decoration:none;margin:20px 0}
+.close-sidebar{font-size:30px;cursor:pointer}
+
+/* Search */
+.search-input{
+display:none;
+position:absolute;
+top:20px;
+right:100px;
+padding:5px;
+}
+
+/* User Dropdown */
+.user-dropdown{
+display:none;
+position:absolute;
+top:70px;
+right:100px;
+background:#fff;
+border:1px solid #eee;
+padding:15px;
+}
+
+/* Mini Cart */
+.mini-cart{
+display:none;
+position:absolute;
+top:70px;
+right:20px;
+background:#fff;
+border:1px solid #eee;
+padding:20px;
+width:250px;
+}
+
+/* WhatsApp */
+.whatsapp-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+}
+
+/* Instagram */
+.instagram-btn{
+position:fixed;
+bottom:90px;
+right:20px;
+background:#E1306C;
+color:#fff;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+}
+
